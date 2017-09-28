@@ -35,12 +35,12 @@ eig
 ids=kmeans(dat,3);
 tt=[0.25 0.5 1 2 3 5 7 8];
 for ii=1:3
-    inds=ids==ii;
-    subplot(1,3,ii);
-    plot(tt,mean(dat(inds,:),1),'.-','LineWidth',3,'MarkerSize',18);
-    title(['Cluster' int2str(ii), ' ngenes: ' int2str(sum(inds))]);
+    inds=ids=ii;
+    sublplot(3,4,ii);
+    plot(tt,mean(gdata(inds,:),1),'.-','LineWidth',3,'MarkerSize',18);
+    title(['Cluster' int2str(ii), ' ngenes: ' int2str(sum(inds)))]);
 end
-    
+
 colors={'r','g','b','c','m','k','y'};
 figure; hold on;
 plot(sc(:,1), sc(:,2), 'r.', 'LineWidth',2,'MarkerSize',24);
@@ -51,16 +51,3 @@ ylabel('PC2','FontSize',32);
 %4. Repeat part 3 but use 7 clusters. Which is a more appropriate number of
 %clusters for the data?
 
-%Miguel Angel: If we look closer at the graphs, cluster 1 and 6 have the
-%same behavior, same as for cluster 2 and 5. Finally, cluster 3, 4 and 7
-%behave similar as well. Which means that with only 3 clusters is enough to
-%account for the rest of the data.
-
-ids=kmeans(dat,7);
-tt=[0.25 0.5 1 2 3 5 7 8];
-for ii=1:7
-    inds=ids==ii;
-    subplot(4,2,ii);
-    plot(tt,mean(dat(inds,:),1),'.-','LineWidth',3,'MarkerSize',18);
-    title(['Cluster' int2str(ii), ' ngenes: ' int2str(sum(inds))]);
-end
